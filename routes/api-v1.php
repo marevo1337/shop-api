@@ -14,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['prefix' => 'users'], function () {
-    Route::post('', [App\Http\Controllers\API\v1\User\Post\Controller::class, 'run'])
+    Route::post('', [App\Http\Controllers\API\v1\User\Registration\Controller::class, 'run'])
         ->middleware('guest');
 });

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\API\v1\User\Post\Dto;
+namespace App\Http\Controllers\API\v1\User\Registration\Dto;
 
 use App\ShopApi\User\Contract\UserRegistrationDataInterface;
 

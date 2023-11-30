@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\API\v1\User\Post;
+namespace App\Http\Controllers\API\v1\User\Registration;
 
 use App\Http\Controllers\BaseController;
 use App\Http\Requests\API\v1\User\Post\Request;
