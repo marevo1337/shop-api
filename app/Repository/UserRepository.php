@@ -46,4 +46,13 @@ class UserRepository implements UserStorageInterface
 
         return $queryBuilder->paginate($data->getPageSize());
     }
+
+    /**
+     * @param int $id
+     * @return User|null
+     */
+    public function getById(int $id): ?object
+    {
+        return User::query()->find($id);
+    }
 }

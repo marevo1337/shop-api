@@ -17,3 +17,10 @@ Route::group(['prefix' => 'users'], function () {
     Route::post('', [App\Http\Controllers\API\v1\User\Registration\Controller::class, 'run'])
         ->middleware('guest');
 });
+
+Route::group(['prefix' => 'auth'], function () {
+    Route::post('login', [App\Http\Controllers\API\v1\Auth\Login\Controller::class, 'run'])
+        ->middleware('guest');
+    Route::post('refresh', [App\Http\Controllers\API\v1\Auth\Refresh\Controller::class, 'run'])
+        ->middleware('auth');
+});

@@ -8,6 +8,12 @@ use App\ShopApi\User\Contract\UserSearchDataInterface;
 interface UserStorageInterface
 {
     /**
+     * @param int $id
+     * @return User|null
+     */
+    public function getById(int $id): ?object;
+
+    /**
      * @param string $email
      * @return User|null
      */

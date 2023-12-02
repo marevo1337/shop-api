@@ -2,7 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\ShopApi\Security\Auth\Contract\CredentialsDataInterface;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property int         $id
@@ -14,5 +15,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property int         $permission_id
  * @property string      $status
  */
-class User extends Authenticatable
-{}
+class User extends Model implements CredentialsDataInterface
+{
+    public function getId(): int
+    {
+        return $this->id;
+    }
+}
