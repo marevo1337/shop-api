@@ -3,6 +3,7 @@
 namespace App\ShopApi\ProductCategory\Storage;
 
 use App\Models\ProductCategory;
+use Illuminate\Database\Eloquent\Collection;
 
 interface ProductCategoryStorageInterface
 {
@@ -17,4 +18,6 @@ interface ProductCategoryStorageInterface
      * @return ProductCategory|null
      */
     public function getByAlias(string $alias): ?object;
+
+    public function getAll(): Collection;
 }

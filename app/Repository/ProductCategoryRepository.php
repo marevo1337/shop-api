@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Models\ProductCategory;
 use App\ShopApi\ProductCategory\Storage\ProductCategoryStorageInterface;
+use Illuminate\Database\Eloquent\Collection;
 
 class ProductCategoryRepository implements ProductCategoryStorageInterface
 {
@@ -23,5 +24,11 @@ class ProductCategoryRepository implements ProductCategoryStorageInterface
         return ProductCategory::query()
             ->where('alias', '=', $alias)
             ->first();
+    }
+
+    public function getAll(): Collection
+    {
+        return ProductCategory::query()
+            ->get();
     }
 }
