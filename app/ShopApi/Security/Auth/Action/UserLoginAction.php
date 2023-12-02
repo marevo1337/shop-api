@@ -23,11 +23,11 @@ class UserLoginAction
     {
         $user = $this->userStorage->findByEmail($data->getEmail());
         if (is_null($user)) {
-            throw new RuntimeException('Invalid email or password');
+            throw new RuntimeException('Неверный логин или пароль');
         }
 
         if (!Hash::check($data->getPassword(), $user->password)) {
-            throw new RuntimeException('Invalid email or password');
+            throw new RuntimeException('Неверный логин или пароль');
         }
 
         return $this->authService->login($user);

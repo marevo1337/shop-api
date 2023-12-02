@@ -38,3 +38,8 @@ Route::group(['prefix' => 'permissions'], function () {
 
 Route::get('profile', [App\Http\Controllers\API\v1\User\Profile\Controller::class, 'run'])
     ->middleware('auth');
+
+Route::group(['prefix' => 'product-categories'], function () {
+    Route::post('', [App\Http\Controllers\API\v1\ProductCategory\Create\Controller::class, 'run'])
+        ->middleware('auth');
+});
