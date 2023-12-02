@@ -45,6 +45,6 @@ Route::group(['prefix' => 'product-categories'], function () {
     Route::put('{id}', [App\Http\Controllers\API\v1\ProductCategory\Update\Controller::class, 'run'])
         ->where('id', '[0-9]+')
         ->middleware('auth');
-    Route::get('', [\App\Http\Controllers\API\v1\ProductCategory\List\Controller::class, 'run'])
+    Route::get('', [App\Http\Controllers\API\v1\ProductCategory\List\Controller::class, 'run'])
         ->middleware('auth');
 });
