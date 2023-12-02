@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\API\v1\User\Post;
+namespace App\Http\Requests\API\v1\User\Registration;
 
 use App\Http\Controllers\API\v1\User\Registration\Dto\UserRegistrationData;
 use Illuminate\Foundation\Http\FormRequest;

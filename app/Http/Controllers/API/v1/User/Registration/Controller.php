@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\API\v1\User\Registration;
 
 use App\Http\Controllers\BaseController;
-use App\Http\Requests\API\v1\User\Post\Request;
+use App\Http\Requests\API\v1\User\Registration\Request;
 use App\ShopApi\Exception\RuntimeException;
 use App\ShopApi\User\Action\UserRegistrationAction;
 use App\UI\Response\JsonResponseFactory;

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\API\v1\User\List;
 
-use App\Http\Controllers\API\v1\User\List\Dto\UserSearchData;
 use App\Http\Controllers\BaseController;
+use App\Http\Requests\API\v1\User\List\Request;
 use App\ShopApi\Exception\RuntimeException;
 use App\ShopApi\User\Action\UserListAction;
 use App\UI\Response\JsonResponseFactory;
@@ -17,10 +17,10 @@ class Controller extends BaseController
         private readonly OutputBuilder       $outputBuilder
     ) {}
 
-    public function run(): JsonResponse
+    public function run(Request $request): JsonResponse
     {
         try {
-            $users = $this->userListAction->run(new UserSearchData());
+            $users = $this->userListAction->run($request->getData());
         } catch (RuntimeException $e) {
             return $this->jsonResponseFactory->success($e->getMessage());
         }
