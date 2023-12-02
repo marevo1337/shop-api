@@ -28,3 +28,8 @@ Route::group(['prefix' => 'users'], function () {
     Route::get('', [App\Http\Controllers\API\v1\User\List\Controller::class, 'run'])
         ->middleware('auth');
 });
+
+Route::group(['prefix' => 'permissions'], function () {
+    Route::get('', [App\Http\Controllers\API\v1\Permission\List\Controller::class, 'run'])
+        ->middleware('auth');
+});
