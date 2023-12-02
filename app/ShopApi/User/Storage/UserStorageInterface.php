@@ -4,6 +4,7 @@ namespace App\ShopApi\User\Storage;
 
 use App\Models\User;
 use App\ShopApi\User\Contract\UserSearchDataInterface;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
 interface UserStorageInterface
 {
@@ -19,5 +20,5 @@ interface UserStorageInterface
      */
     public function findByEmail(string $email): ?object;
 
-    public function search(UserSearchDataInterface $data);
+    public function search(UserSearchDataInterface $data): LengthAwarePaginator;
 }

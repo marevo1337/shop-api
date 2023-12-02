@@ -2,25 +2,28 @@
 
 namespace App\ShopApi\User\Action;
 
-use App\Models\User;
+use App\ShopApi\Exception\RuntimeException;
+use App\ShopApi\Security\Permission\Service\PermissionChecker;
 use App\ShopApi\User\Contract\UserSearchDataInterface;
 use App\ShopApi\User\Storage\UserStorageInterface;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
 class UserListAction
 {
+    private const ACTION = 'UserList';
+
     public function __construct(
+        private readonly PermissionChecker    $permissionChecker,
         private readonly UserStorageInterface $userStorage
     ) {}
 
     /**
-     * @param UserSearchDataInterface $data
-     * @return User[]
+     * @throws RuntimeException
      */
-    public function run(UserSearchDataInterface $data): array
+    public function run(UserSearchDataInterface $data): LengthAwarePaginator
     {
-        /** @var User[] $users */
-        $users = $this->userStorage->search($data);
+        $this->permissionChecker->check(self::ACTION);
 
-        return $users;
+        return $this->userStorage->search($data);
     }
 }

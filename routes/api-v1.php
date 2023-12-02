@@ -21,6 +21,10 @@ Route::group(['prefix' => 'users'], function () {
 Route::group(['prefix' => 'auth'], function () {
     Route::post('login', [App\Http\Controllers\API\v1\Auth\Login\Controller::class, 'run'])
         ->middleware('guest');
-    Route::post('refresh', [App\Http\Controllers\API\v1\Auth\Refresh\Controller::class, 'run'])
+    Route::post('refresh', [App\Http\Controllers\API\v1\Auth\Refresh\Controller::class, 'run']);
+});
+
+Route::group(['prefix' => 'users'], function () {
+    Route::get('', [App\Http\Controllers\API\v1\User\List\Controller::class, 'run'])
         ->middleware('auth');
 });
