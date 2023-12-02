@@ -32,6 +32,9 @@ Route::group(['prefix' => 'users'], function () {
 Route::group(['prefix' => 'permissions'], function () {
     Route::get('', [App\Http\Controllers\API\v1\Permission\List\Controller::class, 'run'])
         ->middleware('auth');
-    Route::post('', [\App\Http\Controllers\API\v1\Permission\Create\Controller::class, 'run'])
+    Route::post('', [App\Http\Controllers\API\v1\Permission\Create\Controller::class, 'run'])
         ->middleware('auth');
 });
+
+Route::get('profile', [App\Http\Controllers\API\v1\User\Profile\Controller::class, 'run'])
+    ->middleware('auth');
