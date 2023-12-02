@@ -42,4 +42,7 @@ Route::get('profile', [App\Http\Controllers\API\v1\User\Profile\Controller::clas
 Route::group(['prefix' => 'product-categories'], function () {
     Route::post('', [App\Http\Controllers\API\v1\ProductCategory\Create\Controller::class, 'run'])
         ->middleware('auth');
+    Route::put('{id}', [App\Http\Controllers\API\v1\ProductCategory\Update\Controller::class, 'run'])
+        ->where('id', '[0-9]+')
+        ->middleware('auth');
 });
