@@ -28,7 +28,7 @@ class Controller extends BaseController
         return $this->jsonResponseFactory->success(
             'User list',
             [
-                'users' => $this->outputBuilder->build($users),
+                $this->outputBuilder->build($users),
             ]
         );
     }
