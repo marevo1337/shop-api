@@ -48,3 +48,8 @@ Route::group(['prefix' => 'product-categories'], function () {
     Route::get('', [App\Http\Controllers\API\v1\ProductCategory\List\Controller::class, 'run'])
         ->middleware('auth');
 });
+
+Route::group(['prefix' => 'products'], function () {
+    Route::post('', [App\Http\Controllers\API\v1\Product\Create\Controller::class, 'run'])
+        ->middleware('auth');
+});
