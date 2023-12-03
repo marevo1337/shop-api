@@ -52,4 +52,13 @@ Route::group(['prefix' => 'product-categories'], function () {
 Route::group(['prefix' => 'products'], function () {
     Route::post('', [App\Http\Controllers\API\v1\Product\Create\Controller::class, 'run'])
         ->middleware('auth');
+
+    Route::group(['prefix' => '{alias}'], function () {
+        Route::post('publish', [App\Http\Controllers\API\v1\Product\Publish\Controller::class, 'run'])
+            ->middleware('auth');
+        Route::post('ban', [App\Http\Controllers\API\v1\Product\Ban\Controller::class, 'run'])
+            ->middleware('auth');
+        Route::post('archive', [App\Http\Controllers\API\v1\Product\Archive\Controller::class, 'run'])
+            ->middleware('auth');
+    });
 });
