@@ -62,3 +62,12 @@ Route::group(['prefix' => 'products'], function () {
             ->middleware('auth');
     });
 });
+
+Route::group(['prefix' => 'product-details'], function () {
+    Route::post('', [App\Http\Controllers\API\v1\Detail\Create\Controller::class, 'run'])
+        ->middleware('auth');
+    Route::put('{detailId}/bind/{productId}', [App\Http\Controllers\API\v1\Detail\ProductBinder\Controller::class, 'run'])
+        ->where('detailId', '[0-9]+')
+        ->where('productId', '[0-9]+')
+        ->middleware('auth');
+});

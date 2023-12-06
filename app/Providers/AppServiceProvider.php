@@ -6,8 +6,10 @@ use App\Infrastructure\FireBase\AuthService;
 use App\Repository\ActionPermissionRepository;
 use App\Repository\PermissionRepository;
 use App\Repository\ProductCategoryRepository;
+use App\Repository\ProductDetailRepository;
 use App\Repository\ProductRepository;
 use App\Repository\UserRepository;
+use App\ShopApi\Detail\Storage\ProductDetailStorageInterface;
 use App\ShopApi\Product\Storage\ProductStorageInterface;
 use App\ShopApi\ProductCategory\Storage\ProductCategoryStorageInterface;
 use App\ShopApi\Security\Auth\Service\AuthServiceInterface;
@@ -29,6 +31,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(ActionPermissionStorageInterface::class, ActionPermissionRepository::class);
         $this->app->bind(ProductCategoryStorageInterface::class, ProductCategoryRepository::class);
         $this->app->bind(ProductStorageInterface::class, ProductRepository::class);
+        $this->app->bind(ProductDetailStorageInterface::class, ProductDetailRepository::class);
     }
 
     /**
